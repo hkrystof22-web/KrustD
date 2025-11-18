@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio – Úvod</title>
+  <link rel="stylesheet" href="Uvod.css">
+</head>
+<body>
+
+  <nav>
+    <div class="nav-left">
+       <h1 class="logo">KRUSTDESIGN.CZ</h1>
+    </div>
+
+    <div class="nav-right">
+      <!-- Hamburger menu -->
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      
+      <ul>
+        <li><a href="Uvod.html" class="active">Úvod</a></li>
+        <li><a href="Omne.html">O mně</a></li>
+        <li><a href="Portfolio.html">Portfolio</a></li>
+        <li><a href="Kontakt.html" class="mobile-contact-btn">Kontakt</a></li>
+      </ul>
+      <a href="Kontakt.html" class="contact-btn">Kontakt</a>
+    </div>
+  </nav>
+
+  <!-- Malý text pod navigací -->
+  <div class="notice-bar">
+    <p>Našel jsi na webu chybu? <a href="Kontakt.html">Dej mi vědět</a> - pomůžeš mi zlepšit kvalitu!</p>
+  </div>
+
+  <section class="hero">
+    <div class="hero-content">
+      <p class="intro">VÍTEJ NA MÉM WEBU</p>
+      <h1 class="name">Jsem <span class="highlight">Web Designer</span></h1>
+      <p class="desc">Tvořím moderní, responzivní a dynamické weby, které zaujmou a přinášejí výsledky. Pomáhám značkám růst díky profesionálnímu designu a funkčnímu řešení.</p>
+    </div>
+  </section>
+
+  <section class="why-me">
+    <h2>Proč spolupracovat právě se mnou</h2>
+    <div class="why-grid">
+      <div class="why-item">
+        <h3>Promyšlené a funkční weby</h3>
+        <p>Každý web navrhuji tak, aby nejen dobře vypadal, ale hlavně dával smysl. Důraz kladu na přehlednost a funkčnost.</p>
+      </div>
+      <div class="why-item">
+        <h3>Moderní a responzivní design</h3>
+        <p>Design se přizpůsobí mobilům a počítačům. Uživatel má vždy plynulý zážitek.</p>
+      </div>
+      <div class="why-item">
+        <h3>Rychlost a optimalizace</h3>
+        <p>Web musí být lehký a svižný. Používám pouze efektivní řešení, aby načítání bylo co nejrychlejší.</p>
+      </div>
+      <div class="why-item">
+        <h3>Férová komunikace a cena</h3>
+        <p>Všechno říkám na rovinu. Mým cílem je kvalitní výsledek za férovou cenu, ne zbytečné přirážky.</p>
+      </div>
+      <div class="why-item">
+        <h3>Dlouhodobá spolupráce a údržba</h3>
+        <p>Postarám se o web i po dokončení — aktualizace, vylepšení nebo správa obsahu, vše podle potřeby.</p>
+      </div>
+      <div class="why-item">
+        <h3>Každý projekt dělám poctivě</h3>
+        <p>Žádné kopírování šablon. Každý web dělám na míru a s osobním přístupem.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-content">
+      <img src="Photos/Logo2.png" alt="Logo" class="logo-img">
+      <p class="footer-text">Krust Design © 2025</p>
+    </div>
+  </footer>
+
+  <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.nav-right ul');
+    const body = document.body;
+    
+    // Přepínání menu
+    hamburger.addEventListener('click', function () {
+      hamburger.classList.toggle('active');
+      navMenu.classList.toggle('active');
+      body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
+    });
+    
+    // Zavření menu po kliknutí na odkaz
+    const navLinks = document.querySelectorAll('.nav-right ul li a');
+    navLinks.forEach(link => {
+      link.addEventListener('click', function () {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+        body.style.overflow = '';
+      });
+    });
+    
+    // Původní funkce pro přechody mezi stránkami
+    const links = document.querySelectorAll('a[href]');
+    links.forEach(link => {
+      link.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (!href || href.startsWith('#') || href.startsWith('http')) return;
+        e.preventDefault();
+        document.body.classList.add('fade-out');
+        setTimeout(() => { window.location.href = href; }, 350);
+      });
+    });
+  });
+  </script>
+
+</body>
+</html>

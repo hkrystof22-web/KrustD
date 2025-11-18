@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio – Portfolio</title>
+  <link rel="stylesheet" href="Portfolio.css">
+</head>
+<body>
+
+  <nav>
+    <div class="nav-left">
+      <h1 class="logo">KRUSTDESIGN.CZ</h1>
+    </div>
+
+    <div class="nav-right">
+      <!-- Hamburger menu -->
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      
+      <ul>
+        <li><a href="Uvod.html">Úvod</a></li>
+        <li><a href="Omne.html">O mně</a></li>
+        <li><a href="Portfolio.html" class="active">Portfolio</a></li>
+        <li><a href="Kontakt.html" class="mobile-contact-btn">Kontakt</a></li>
+      </ul>
+      <a href="Kontakt.html" class="contact-btn">Kontakt</a>
+    </div>
+  </nav>
+  
+  <section class="portfolio-section">
+    <h2>Mé Projekty</h2>
+    <p class="portfolio-intro">
+      Momentálně zde najdeš pouze tento web, který průběžně rozšiřuji o další projekty a ukázky své práce.
+    </p>
+
+    <div class="portfolio-grid">
+      <div class="portfolio-item">
+        <h3>Osobní web – Portfolio</h3>
+        <p>Kompletně navržený a vytvořený vlastní web s moderním, responzivním designem.</p>
+        <a href="Uvod.html" class="portfolio-link">Zobrazit projekt</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-content">
+      <img src="Photos/Logo2.png" alt="Logo" class="logo-img">
+      <p class="footer-text">Krust Design © 2025</p>
+    </div>
+  </footer>
+
+  <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.nav-right ul');
+    const body = document.body;
+    
+    // Přepínání menu
+    hamburger.addEventListener('click', function () {
+      hamburger.classList.toggle('active');
+      navMenu.classList.toggle('active');
+      body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
+    });
+    
+    // Zavření menu po kliknutí na odkaz
+    const navLinks = document.querySelectorAll('.nav-right ul li a');
+    navLinks.forEach(link => {
+      link.addEventListener('click', function () {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+        body.style.overflow = '';
+      });
+    });
+    
+    // Původní funkce pro přechody mezi stránkami
+    const links = document.querySelectorAll('a[href]');
+    links.forEach(link => {
+      link.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (!href || href.startsWith('#') || href.startsWith('http')) return;
+        e.preventDefault();
+        document.body.classList.add('fade-out');
+        setTimeout(() => { window.location.href = href; }, 350);
+      });
+    });
+  });
+  </script>
+</body>
+</html>

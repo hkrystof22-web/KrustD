@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio – O mně</title>
+  <link rel="stylesheet" href="Omne.css">
+</head>
+<body>
+
+  <nav>
+    <div class="nav-left">
+      <h1 class="logo">KRUSTDESIGN.CZ</h1>
+    </div>
+
+    <div class="nav-right">
+      <!-- Hamburger menu -->
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      
+      <ul>
+        <li><a href="Uvod.html">Úvod</a></li>
+        <li><a href="Omne.html" class="active">O mně</a></li>
+        <li><a href="Portfolio.html">Portfolio</a></li>
+        <li><a href="Kontakt.html" class="mobile-contact-btn">Kontakt</a></li>
+      </ul>
+      <a href="Kontakt.html" class="contact-btn">Kontakt</a>
+    </div>
+  </nav>
+
+  <section class="about">
+    <div class="about-box">
+      <h2>O mně</h2>
+      <p>
+        Jsem student střední školy se zaměřením na informační technologie.
+        Baví mě tvořit moderní, přehledné a funkční weby, které nejen dobře vypadají,
+        ale také dávají smysl. Zaměřuji se na dynamické a responzivní weby,
+        které se přizpůsobí každému zařízení a přinášejí uživatelům plynulý zážitek.
+        Mám rád jednoduchý design, čisté rozložení a důraz na detaily.
+      </p>
+    </div>
+  </section>
+
+  <section class="skills-section">
+    <h2>Moje znalosti</h2>
+    <div class="skills-grid">
+      <div class="skill-item">
+        <h3>HTML & CSS</h3>
+        <p>Základ webu – struktura pomocí HTML a vzhled pomocí CSS.</p>
+      </div>
+      <div class="skill-item">
+        <h3>JavaScript</h3>
+        <p>Jazyk, který dává stránkám život a interaktivní prvky.</p>
+      </div>
+      <div class="skill-item">
+        <h3>Responzivní design</h3>
+        <p>Zajišťuje, že web funguje a vypadá dobře na všech zařízeních.</p>
+      </div>
+      <div class="skill-item">
+        <h3>SEO optimalizace</h3>
+        <p>Pomáhá webu být lépe dohledatelný ve vyhledávačích.</p>
+      </div>
+      <div class="skill-item">
+        <h3>UX / UI design</h3>
+        <p>Zaměřuje se na přehlednost, jednoduchost a příjemné používání webu.</p>
+      </div>
+      <div class="skill-item">
+        <h3>Údržba a aktualizace</h3>
+        <p>Pravidelná péče o web, aby byl vždy aktuální a funkční.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-content">
+      <img src="Photos/Logo2.png" alt="Logo" class="logo-img">
+      <p class="footer-text">Krust Design © 2025</p>
+    </div>
+  </footer>
+
+  <script>
+  // Hamburger menu funkce
+  document.addEventListener('DOMContentLoaded', function () {
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.nav-right ul');
+    const body = document.body;
+    
+    // Přepínání menu
+    hamburger.addEventListener('click', function () {
+      hamburger.classList.toggle('active');
+      navMenu.classList.toggle('active');
+      body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
+    });
+    
+    // Zavření menu po kliknutí na odkaz
+    const navLinks = document.querySelectorAll('.nav-right ul li a');
+    navLinks.forEach(link => {
+      link.addEventListener('click', function () {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+        body.style.overflow = '';
+      });
+    });
+    
+    // Původní funkce pro přechody mezi stránkami
+    const links = document.querySelectorAll('a[href]');
+    links.forEach(link => {
+      link.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (!href || href.startsWith('#') || href.startsWith('http')) return;
+        e.preventDefault();
+        document.body.classList.add('fade-out');
+        setTimeout(() => { window.location.href = href; }, 350);
+      });
+    });
+  });
+  </script>
+
+</body>
+</html>

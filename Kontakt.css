@@ -1,0 +1,447 @@
+/* ============================================================
+   🧱 ZÁKLADNÍ RESET A NASTAVENÍ
+============================================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', 'Segoe UI', sans-serif;
+  background-color: #0e0e0e;
+  color: #fff;
+  transition: opacity 0.35s ease;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ============================================================
+   🌐 NAVIGACE (STEJNÁ JAKO NA OSTATNÍCH STRÁNKÁCH)
+============================================================ */
+nav {
+  position: fixed;
+  top: 3vh;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 65%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+  padding: 0 30px;
+  background-color: rgba(25, 25, 25, 0.95);
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+.logo {
+  color: #0467ad;
+  font-size: 1.7em;
+  font-weight: 700;
+  z-index: 1001;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 35px;
+}
+
+.nav-right ul {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+}
+
+.nav-right a {
+  text-decoration: none;
+  color: #ccc;
+  font-weight: 500;
+  font-size: 1.05em;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.nav-right ul li a:hover {
+  color: #fff;
+  transform: scale(1.05);
+}
+
+.nav-right ul li a::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #0467ad;
+  transition: width 0.3s ease;
+}
+
+.nav-right ul li a:hover::after {
+  width: 100%;
+}
+
+/* 🌈 Neonový Kontakt button */
+.contact-btn {
+  padding: 9px 18px;
+  border-radius: 12px;
+  font-weight: 500;
+  font-size: 1.05em;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+}
+
+.contact-btn::after {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #0467ad;
+  left: 0;
+  top: 0;
+  border-radius: 12px;
+}
+
+.contact-btn::before {
+  content: "";
+  background: linear-gradient(45deg, #FF0000, #FF7300, #FFFB00, #48FF00, #00FFD5, #FF00C8, #FF0000);
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 600%;
+  z-index: -1;
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  filter: blur(8px);
+  animation: glowing 20s linear infinite;
+  border-radius: 12px;
+}
+
+@keyframes glowing {
+  0% {background-position: 0 0;}
+  50% {background-position: 400% 0;}
+  100% {background-position: 0 0;}
+}
+
+.contact-btn:hover {
+  background-color: #cdeaff;
+  transform: scale(1.1);
+}
+
+/* Hamburger menu - skrytý na desktopu */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  padding: 5px;
+  z-index: 1001;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: #fff;
+  margin: 3px 0;
+  transition: 0.3s;
+  border-radius: 2px;
+}
+
+/* ============================================================
+   📩 KONTAKT SEKCE
+============================================================ */
+.contact-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 160px 20px 100px;
+  min-height: 100vh;
+}
+
+.contact-container {
+  max-width: 600px;
+  width: 100%;
+  background-color: rgba(30, 30, 30, 0.9);
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+
+.contact-container h2 {
+  font-size: 2rem;
+  color: #0467ad;
+  margin-bottom: 15px;
+}
+
+.contact-container p {
+  color: #ccc;
+  margin-bottom: 30px;
+  line-height: 1.6;
+  font-size: 1.05rem;
+}
+
+/* ====== FORMULÁŘ ====== */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 12px 15px;
+  border: none;
+  border-radius: 10px;
+  background-color: #1a1a1a;
+  color: #fff;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  font-family: 'Poppins', sans-serif;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  box-shadow: 0 0 10px #0467ad;
+  background-color: #111;
+}
+
+.contact-form textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+/* ====== TLAČÍTKO ====== */
+.btn.primary {
+  background-color: #0467ad;
+  color: #fff;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  font-family: 'Poppins', sans-serif;
+}
+
+.btn.primary:hover {
+  background-color: #035388;
+  transform: scale(1.05);
+}
+
+/* ============================================================
+   ⚫ FOOTER
+============================================================ */
+footer {
+  background-color: rgba(25, 25, 25, 0.9);
+  text-align: center;
+  padding: 25px 10px;
+  border-top: 1px solid #0467ad;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer-text {
+  color: #aaa;
+  font-size: 0.95rem;
+}
+
+.logo-img {
+  margin-top: 5px;
+  height: 70px;
+  width: auto;
+  filter: drop-shadow(0 0 6px rgba(4,103,173,0.5));
+  transition: transform 0.3s ease;
+}
+
+.logo-img:hover {
+  transform: scale(1.08);
+}
+
+/* ============================================================
+   📱 RESPONZIVITA - VYLEPŠENÁ S HAMBURGER MENU
+============================================================ */
+
+/* Tablety */
+@media (max-width: 1024px) {
+  nav {
+    width: 85%;
+  }
+  
+  .contact-container {
+    max-width: 550px;
+  }
+}
+
+/* Mobily - přepnutí na hamburger menu */
+@media (max-width: 768px) {
+  nav {
+    width: 92%;
+    padding: 0 20px;
+    height: 60px;
+  }
+  
+  /* Hamburger menu - zobrazení */
+  .hamburger {
+    display: flex;
+  }
+  
+  /* Navigační menu - skryté jako výchozí stav */
+  .nav-right ul {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    height: 100vh;
+    background: rgba(20, 20, 20, 0.98);
+    backdrop-filter: blur(10px);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    transition: right 0.4s ease;
+    z-index: 999;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Aktivní stav menu */
+  .nav-right ul.active {
+    right: 0;
+  }
+  
+  .nav-right ul li a {
+    font-size: 1.2rem;
+    padding: 10px 20px;
+  }
+  
+  .contact-btn {
+    display: none; /* Skryjeme kontaktní tlačítko v hamburger menu */
+  }
+  
+  /* Kontaktní tlačítko v mobilním menu */
+  .mobile-contact-btn {
+    display: block;
+    margin-top: 20px;
+    padding: 12px 30px;
+    background: #0467ad;
+    color: white;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+  }
+  
+  .mobile-contact-btn:hover {
+    background: #035a9b;
+    transform: scale(1.05);
+  }
+  
+  .contact-section {
+    padding: 140px 20px 80px;
+  }
+  
+  .contact-container {
+    padding: 30px 25px;
+  }
+  
+  .contact-container h2 {
+    font-size: 1.8rem;
+  }
+  
+  .contact-container p {
+    font-size: 1rem;
+  }
+  
+  /* Animace hamburger menu při otevření */
+  .hamburger.active span:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+  }
+  
+  .hamburger.active span:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .hamburger.active span:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+  }
+}
+
+/* Menší mobily */
+@media (max-width: 480px) {
+  nav {
+    width: 95%;
+    padding: 0 15px;
+  }
+  
+  .logo {
+    font-size: 1.3em;
+  }
+  
+  .nav-right ul {
+    width: 80%;
+  }
+  
+  .contact-section {
+    padding: 120px 15px 60px;
+  }
+  
+  .contact-container {
+    padding: 25px 20px;
+  }
+  
+  .contact-container h2 {
+    font-size: 1.6rem;
+  }
+  
+  .contact-container p {
+    font-size: 0.95rem;
+  }
+  
+  .contact-form input,
+  .contact-form textarea {
+    padding: 10px 12px;
+    font-size: 0.95rem;
+  }
+  
+  .btn.primary {
+    padding: 10px 18px;
+    font-size: 0.95rem;
+  }
+
+  .footer-content {
+    margin-bottom: 55px;
+  }
+}
+
+/* Velmi malé obrazovky */
+@media (max-width: 360px) {
+  .logo {
+    font-size: 1.1em;
+  }
+  
+  .nav-right ul {
+    width: 85%;
+  }
+  
+  .contact-container h2 {
+    font-size: 1.4rem;
+  }
+  
+  .contact-container p {
+    font-size: 0.9rem;
+  }
+}

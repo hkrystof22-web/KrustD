@@ -328,7 +328,7 @@ footer {
 }
 
 /* ============================================================
-   📱 RESPONZIVITA - VYLEPŠENÁ S HAMBURGER MENU
+   📱 RESPONZIVITA - 
 ============================================================ */
 
 /* Tablety */
@@ -389,7 +389,7 @@ footer {
   }
   
   .contact-btn {
-    display: none; /* Skryjeme kontaktní tlačítko v hamburger menu */
+    display: none; 
   }
   
   /* Kontaktní tlačítko v mobilním menu */
@@ -444,7 +444,7 @@ footer {
     padding: 0 10px;
   }
   
-  /* Animace hamburger menu při otevření */
+ 
   .hamburger.active span:nth-child(1) {
     transform: rotate(-45deg) translate(-5px, 6px);
   }

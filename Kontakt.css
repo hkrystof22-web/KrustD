@@ -16,9 +16,9 @@ body {
   overflow-x: hidden;
 }
 
-/* ============================================================
-   🌐 NAVIGACE (STEJNÁ JAKO NA OSTATNÍCH STRÁNKÁCH)
-============================================================ */
+/* ============================
+   🌐 NAVIGACE 
+================================ */
 nav {
   position: fixed;
   top: 3vh;
@@ -134,7 +134,7 @@ nav {
   transform: scale(1.1);
 }
 
-/* Hamburger menu - skrytý na desktopu */
+/* Hamburger  */
 .hamburger {
   display: none;
   flex-direction: column;
@@ -272,7 +272,7 @@ footer {
 }
 
 /* ============================================================
-   📱 RESPONZIVITA - VYLEPŠENÁ S HAMBURGER MENU
+   📱 RESPONZIVITA - 
 ============================================================ */
 
 /* Tablety */
@@ -299,7 +299,7 @@ footer {
     display: flex;
   }
   
-  /* Navigační menu - skryté jako výchozí stav */
+  /* Navigační menu - */
   .nav-right ul {
     position: fixed;
     top: 0;
@@ -329,7 +329,7 @@ footer {
   }
   
   .contact-btn {
-    display: none; /* Skryjeme kontaktní tlačítko v hamburger menu */
+    display: none; 
   }
   
   /* Kontaktní tlačítko v mobilním menu */

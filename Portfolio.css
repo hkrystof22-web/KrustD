@@ -247,10 +247,11 @@ body.fade-out {
 .portfolio-grid {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
-  gap: 25px;
+  gap: 250px;
   max-width: 1100px;
   margin: 0 auto;
   padding: 0 20px;
+
 }
 
 /* Box projektu */
@@ -261,6 +262,8 @@ body.fade-out {
   text-align: center;
   box-shadow: 0 4px 15px rgba(0,0,0,0.4);
   transition: all 0.3s ease;
+  margin-top: 20px;
+  
 }
 
 .portfolio-item:hover {
